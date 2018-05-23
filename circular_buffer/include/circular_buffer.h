@@ -11,11 +11,13 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef struct circular_buffer {
 
 	size_t len;
-	void **buffer;
+	size_t data_size;
+	void *buffer;
 	size_t read;
 	size_t write;
 } circular_buffer_t;
@@ -23,13 +25,19 @@ typedef struct circular_buffer {
 /*
 ** Public
 */
-circular_buffer_t *cbuffer_create(size_t len);
+circular_buffer_t *cbuffer_create(size_t len, size_t data_size);
 void cbuffer_reset(circular_buffer_t *buffer);
 void cbuffer_destroy(circular_buffer_t *buffer);
 bool cbuffer_is_empty(const circular_buffer_t *buffer);
 bool cbuffer_is_full(const circular_buffer_t *buffer);
-void cbuffer_write(circular_buffer_t *buffer, void *data);
-void *cbuffer_read(circular_buffer_t *buffer);
+/*
+** Use like write system call
+*/
+size_t cbuffer_write(circular_buffer_t *buffer, void *data, size_t len);
+/*
+** Use like read system call
+*/
+size_t cbuffer_read(circular_buffer_t *buffer, void *data, size_t len);
 
 /*
 ** Private (pcb == private circular_buffer)
