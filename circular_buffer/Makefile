@@ -10,6 +10,7 @@ SRC		=	src/cbuffer_create.c \
 			src/cbuffer_is_empty_full.c \
 			src/cbuffer_reset.c \
 			src/cbuffer_read_write.c \
+			src/cbuffer_count_elements.c \
 			src/pcb_get_next_idx.c
 
 OBJ		=	$(SRC:.c=.o)

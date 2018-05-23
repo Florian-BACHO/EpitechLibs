@@ -33,6 +33,7 @@ void cbuffer_reset(circular_buffer_t *buffer);
 void cbuffer_destroy(circular_buffer_t *buffer);
 bool cbuffer_is_empty(const circular_buffer_t *buffer);
 bool cbuffer_is_full(const circular_buffer_t *buffer);
+size_t cbuffer_count_elements(const circular_buffer_t *buffer);
 
 /*
 ** Use like write system call
