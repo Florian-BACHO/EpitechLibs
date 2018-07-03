@@ -22,7 +22,7 @@ typedef struct linked_list {
 typedef bool (*condition_t)(void *, va_list);
 typedef void (*free_fct_t)(void *);
 /*
-** The foreach_fct_t must return false if the loop have to be breaked
+** The foreach_fct_t must return false if the loop have to be broken
 */
 typedef bool (*foreach_fct_t)(void *, va_list);
 
